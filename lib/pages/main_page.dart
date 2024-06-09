@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/common/theme.dart';
-import 'package:portfolio/widget/home_widget.dart';
+import 'package:portfolio/pages/about_page.dart';
+import 'package:portfolio/pages/home_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -24,27 +23,47 @@ class _MainPageState extends State<MainPage> {
       length: 4,
       child: Scaffold(
         backgroundColor: Color(0xff111011),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          leadingWidth: 160,
+          leading: const Padding(
+            padding: EdgeInsets.only(left: 16.0),
+            child: Text(
+              'leHuynhPhat();',
+              style: TextStyle(
+                  color: AppTheme.indicatorColor,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 20),
+            ),
+          ),
+          title: _buildTabBar(),
+          centerTitle: true,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: IconButton(
+                onPressed: () {},
+                icon: const FaIcon(
+                  FontAwesomeIcons.github,
+                  size: 24,
+                ),
+                color: Colors.white,
+              ),
+            )
+          ],
+        ),
         body: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: width > 750 ? width * 0.15 : 10),
-          child: Column(
-            children: [
-              _buildTabBar(),
-              Expanded(
-                child: TabBarView(
-                  children: <Widget>[
-                    HomeWidget(),
-                    Center(
-                      child: Text("It's rainy here"),
-                    ),
-                    Center(
-                      child: Text("It's sunny here"),
-                    ),
-                    Center(
-                      child: Text("4"),
-                    ),
-                  ],
-                ),
+          child: TabBarView(
+            children: <Widget>[
+              HomePage(),
+              AboutPage(),
+              Center(
+                child: Text("It's sunny here"),
+              ),
+              Center(
+                child: Text("4"),
               ),
             ],
           ),
@@ -54,56 +73,36 @@ class _MainPageState extends State<MainPage> {
   }
 
   Widget _buildTabBar() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Text(
-          'leHuynhPhat();',
-          style: TextStyle(
-              color: AppTheme.indicatorColor,
-              fontWeight: FontWeight.w800,
-              fontSize: 20),
-        ),
-        SizedBox(
-          width: 300,
-          child: TabBar(
-            unselectedLabelStyle: GoogleFonts.zcoolXiaoWei(
-                textStyle: const TextStyle(
-                    color: AppTheme.unClickColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 12)),
-            labelStyle: GoogleFonts.zcoolXiaoWei(
-                textStyle: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 12)),
-            dividerColor: Colors.transparent,
-            indicatorColor: AppTheme.indicatorColor,
-            tabs: <Widget>[
-              Tab(
-                text: 'Home',
-              ),
-              Tab(
-                text: 'About',
-              ),
-              Tab(
-                text: 'Portfolio',
-              ),
-              Tab(
-                text: 'Blog',
-              ),
-            ],
+    return SizedBox(
+      width: 300,
+      child: TabBar(
+        unselectedLabelStyle: GoogleFonts.zcoolXiaoWei(
+            textStyle: const TextStyle(
+                color: AppTheme.unClickColor,
+                fontWeight: FontWeight.w600,
+                fontSize: 12)),
+        labelStyle: GoogleFonts.zcoolXiaoWei(
+            textStyle: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 12)),
+        dividerColor: Colors.transparent,
+        indicatorColor: AppTheme.indicatorColor,
+        tabs: <Widget>[
+          Tab(
+            text: 'Home',
           ),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: FaIcon(
-            FontAwesomeIcons.github,
-            size: 24,
+          Tab(
+            text: 'About',
           ),
-          color: Colors.white,
-        )
-      ],
+          Tab(
+            text: 'Portfolio',
+          ),
+          Tab(
+            text: 'Blog',
+          ),
+        ],
+      ),
     );
   }
 }
