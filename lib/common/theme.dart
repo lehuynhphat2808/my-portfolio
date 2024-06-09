@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static const indicatorColor = Color(0xffc7b693);
 
-  static const textColor2 = Color(0xFF333333);
+  static const appBackground = Color(0xff111011);
 
   static const dividerColor = Color(0xFFC4CFDD);
 

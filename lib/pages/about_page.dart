@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/common/theme.dart';
+
+import '../model/skill_model.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -14,47 +15,55 @@ class AboutPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Card(
-            color: Color.fromRGBO(50, 50, 50, 1.0),
+            color: const Color.fromRGBO(50, 50, 50, 1.0),
             child: Container(
               height: 400,
               padding: const EdgeInsets.all(16.0),
-              child: const Row(
+              child: Row(
                 children: [
                   Column(
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            'About Me',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          SizedBox(
-                            width: 250,
-                            child: Divider(
-                              thickness: 2,
-                              indent: 2,
-                              endIndent: 2,
-                              color: AppTheme.indicatorColor,
-                            ),
-                          )
+                      Animate(
+                        effects: const [
+                          ScaleEffect(),
                         ],
+                        child: const Row(
+                          children: [
+                            Text(
+                              'About Me',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            SizedBox(
+                              width: 250,
+                              child: Divider(
+                                thickness: 2,
+                                indent: 2,
+                                endIndent: 2,
+                                color: AppTheme.indicatorColor,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 8,
                       ),
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 150,
                         backgroundImage: AssetImage('assets/images/avatar.jpg'),
-                      )
+                      ).animate().slide(
+                            begin: const Offset(0, 0.3),
+                            duration: const Duration(milliseconds: 300),
+                          )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   Expanded(
@@ -62,21 +71,31 @@ class AboutPage extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "Good day everyone, my name is Le Huynh Phát. I'm a fourth year software engineering student pursuing a career as a mobile application developer. What I enjoy most about my work is the artistic aspect of creation - building applications that are not just functional tools, but deliver memorable experiences.My goal is to craft intuitive, user-friendly apps that attract and retain an engaged audience. Beyond, I aim to imprint each product with a distinct identity and message. Creativity is at the heart of my process, whether designing smooth interfaces or clever interactions that capture user attention.",
                             style: TextStyle(
                                 color: Colors.white,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w500),
+                          ).animate().slide(
+                              duration: Duration(milliseconds: 300),
+                              begin: Offset(1.2, 0),
+                              end: Offset(0, 0),
+                              delay: Duration(milliseconds: 300)),
+                          const SizedBox(
+                            height: 15,
                           ),
-                          SizedBox(
-                            height: 16,
-                          ),
-                          Text(
+                          const Text(
                             "Whether building for businesses or passion projects, I approach each commission with the same care and dedication. Clients can rely on me to balance aesthetics with usability, ensuring their brand or service is optimally represented in the digital space. If developing engaging mobile experiences piques your interest, please feel free to contact me using the details below. I'm always eager to bring new visions to life through code.",
                             style: TextStyle(
                                 color: Colors.white,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500),
-                          ),
+                          ).animate().slide(
+                              duration: Duration(milliseconds: 300),
+                              begin: Offset(1.2, 0),
+                              end: Offset(0, 0),
+                              delay: Duration(milliseconds: 1000)),
                         ],
                       ),
                     ),
@@ -85,10 +104,10 @@ class AboutPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
-          Row(
+          const Row(
             children: [
               SizedBox(
                 width: 50,
@@ -108,10 +127,10 @@ class AboutPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
-          SkillTabbar(),
+          const SkillTabbar(),
         ],
       ),
     );
@@ -128,7 +147,50 @@ class SkillTabbar extends StatefulWidget {
 class _SkillTabbarState extends State<SkillTabbar>
     with TickerProviderStateMixin {
   late final TabController _tabController;
-  bool isToolsTab = false;
+  List<bool> selectedSkillList = List.filled(7, false);
+  List<SkillModel> skillTechModels = [
+    SkillModel(
+      image: 'assets/images/flutter_icon.png',
+      name: 'Flutter',
+      level: 'Competent',
+    ),
+    SkillModel(
+        image: 'assets/images/kotlin_icon.png',
+        name: 'Kotlin',
+        level: 'Intermediate'),
+    SkillModel(
+        image: 'assets/images/spring_boot_icon.png',
+        name: 'Spring Boot',
+        level: 'Intermediate'),
+    SkillModel(
+        image: 'assets/images/firebase_icon.png',
+        name: 'Firebase',
+        level: 'Intermediate'),
+    SkillModel(
+        image: 'assets/images/dart_icon.png', name: 'Dart', level: 'Competent'),
+    SkillModel(
+        image: 'assets/images/java_icon.png',
+        name: 'Java',
+        level: 'Intermediate'),
+    SkillModel(
+        image: 'assets/images/smart_contract_icon.png',
+        name: 'Interact Smart Contract',
+        level: 'Beginner'),
+  ];
+  List<SkillModel> skillToolModels = [
+    SkillModel(
+        image: 'assets/images/git_icon.png',
+        name: 'Git',
+        level: 'Intermediate'),
+    SkillModel(
+        image: 'assets/images/github_icon.png',
+        name: 'Github',
+        level: 'Intermediate'),
+    SkillModel(
+        image: 'assets/images/mysql_icon.png',
+        name: 'MySQL',
+        level: 'Beginner'),
+  ];
 
   @override
   void initState() {
@@ -174,7 +236,8 @@ class _SkillTabbarState extends State<SkillTabbar>
           child: TabBarView(
             controller: _tabController,
             children: <Widget>[
-              GridView(
+              GridView.builder(
+                itemCount: skillTechModels.length,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -182,19 +245,12 @@ class _SkillTabbarState extends State<SkillTabbar>
                     crossAxisSpacing: 32,
                     crossAxisCount: 4,
                     childAspectRatio: 3.5),
-                children: [
-                  _buildItem('assets/images/flutter_icon.png', 'Flutter'),
-                  _buildItem('assets/images/kotlin_icon.png', 'Kotlin'),
-                  _buildItem(
-                      'assets/images/spring_boot_icon.png', 'Spring Boot'),
-                  _buildItem('assets/images/firebase_icon.png', 'Firebase'),
-                  _buildItem('assets/images/dart_icon.png', 'Dart'),
-                  _buildItem('assets/images/java_icon.png', 'Java'),
-                  _buildItem('assets/images/smart_contract_icon.png',
-                      'Interact Smart Contract'),
-                ],
+                itemBuilder: (BuildContext context, int index) {
+                  return _buildItem(skillTechModels[index]);
+                },
               ),
-              GridView(
+              GridView.builder(
+                itemCount: skillToolModels.length,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -202,11 +258,9 @@ class _SkillTabbarState extends State<SkillTabbar>
                     crossAxisSpacing: 32,
                     crossAxisCount: 4,
                     childAspectRatio: 3.5),
-                children: [
-                  _buildItem('assets/images/git_icon.png', 'Git'),
-                  _buildItem('assets/images/github_icon.png', 'Github'),
-                  _buildItem('assets/images/mysql_icon.png', 'MySQL'),
-                ],
+                itemBuilder: (BuildContext context, int index) {
+                  return _buildItem(skillToolModels[index]);
+                },
               ),
             ],
           ),
@@ -215,34 +269,73 @@ class _SkillTabbarState extends State<SkillTabbar>
     );
   }
 
-  Widget _buildItem(String imageLink, String text) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: AppTheme.indicatorColor, width: 2)),
-      padding: const EdgeInsets.all(8),
-      child: Row(
-        children: [
-          Image.asset(
-            fit: BoxFit.cover,
-            imageLink,
-            height: 34,
-          ),
-          SizedBox(
-            width: 8,
-          ),
-          SizedBox(
-            width: 150,
-            child: Text(
-              text,
-              maxLines: 2,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20),
+  Widget _buildItem(SkillModel skillModel) {
+    return MouseRegion(
+      onHover: (event) {
+        setState(() {
+          skillModel.selected = true;
+        });
+      },
+      onExit: (event) {
+        setState(() {
+          skillModel.selected = false;
+        });
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: AppTheme.indicatorColor, width: 2)),
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          children: [
+            Image.asset(
+              fit: BoxFit.cover,
+              skillModel.image,
+              height: 34,
             ),
-          )
-        ],
+            const SizedBox(
+              width: 8,
+            ),
+            SizedBox(
+              width: 175,
+              child: Stack(
+                children: [
+                  AnimatedPositioned(
+                    duration: const Duration(milliseconds: 500),
+                    top: skillModel.selected ? 0 : 10,
+                    child: SizedBox(
+                      width: 175,
+                      child: Text(
+                        skillModel.name,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                  AnimatedPositioned(
+                    duration: Duration(milliseconds: 500),
+                    top: skillModel.selected ? 20 : 50,
+                    child: SizedBox(
+                      width: 150,
+                      child: Text(
+                        skillModel.level,
+                        maxLines: 1,
+                        style: const TextStyle(
+                            color: Colors.yellow,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

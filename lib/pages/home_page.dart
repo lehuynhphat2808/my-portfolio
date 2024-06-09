@@ -55,10 +55,10 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
-                Text(
+                const Text(
                   'Welcome to My Persional Website',
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 )

@@ -22,18 +22,21 @@ class _MainPageState extends State<MainPage> {
       initialIndex: 0,
       length: 4,
       child: Scaffold(
-        backgroundColor: Color(0xff111011),
+        backgroundColor: AppTheme.appBackground,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           leadingWidth: 160,
           leading: const Padding(
             padding: EdgeInsets.only(left: 16.0),
-            child: Text(
-              'leHuynhPhat();',
-              style: TextStyle(
-                  color: AppTheme.indicatorColor,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 20),
+            child: Padding(
+              padding: EdgeInsets.only(top: 8.0),
+              child: Text(
+                'leHuynhPhat();',
+                style: TextStyle(
+                    color: AppTheme.indicatorColor,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20),
+              ),
             ),
           ),
           title: _buildTabBar(),
@@ -74,7 +77,7 @@ class _MainPageState extends State<MainPage> {
 
   Widget _buildTabBar() {
     return SizedBox(
-      width: 300,
+      width: 315,
       child: TabBar(
         unselectedLabelStyle: GoogleFonts.zcoolXiaoWei(
             textStyle: const TextStyle(
@@ -88,7 +91,7 @@ class _MainPageState extends State<MainPage> {
                 fontSize: 12)),
         dividerColor: Colors.transparent,
         indicatorColor: AppTheme.indicatorColor,
-        tabs: <Widget>[
+        tabs: const <Widget>[
           Tab(
             text: 'Home',
           ),
