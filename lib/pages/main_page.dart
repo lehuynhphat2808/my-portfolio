@@ -28,11 +28,11 @@ class _MainPageState extends State<MainPage> {
       length: 4,
       child: Scaffold(
         backgroundColor: AppTheme.appBackground,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            html.window.location.href = Routes.productDetail;
-          },
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {
+        //     html.window.location.href = Routes.productDetail;
+        //   },
+        // ),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           leadingWidth: 160,
@@ -68,7 +68,7 @@ class _MainPageState extends State<MainPage> {
         body: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: width > 750 ? width * 0.15 : 10),
-          child: TabBarView(
+          child: const TabBarView(
             children: <Widget>[
               HomePage(),
               AboutPage(),
