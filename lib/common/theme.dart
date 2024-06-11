@@ -11,7 +11,7 @@ class AppTheme {
 
   static const unClickTextColor = Color(0xFFA6A6A6);
 
-  static const clickColor = Color(0xFFCD2929);
+  static const backGroundCardColor = Color(0xff323232);
 
   static const clickTextColor = Colors.white;
 

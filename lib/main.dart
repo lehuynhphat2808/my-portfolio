@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/main_page.dart';
+import 'package:portfolio/router/router_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My Portfolio',
-      home: MainPage(),
+      initialRoute: Routes.mainPage,
+      onGenerateRoute: RouteGenerator.getRoute,
       debugShowCheckedModeBanner: false,
     );
   }

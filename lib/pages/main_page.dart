@@ -4,6 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/common/theme.dart';
 import 'package:portfolio/pages/about_page.dart';
 import 'package:portfolio/pages/home_page.dart';
+import 'package:portfolio/pages/portfolio_page.dart';
+import 'dart:html' as html;
+
+import '../router/router_manager.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -23,6 +27,11 @@ class _MainPageState extends State<MainPage> {
       length: 4,
       child: Scaffold(
         backgroundColor: AppTheme.appBackground,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            html.window.location.href = Routes.productDetail;
+          },
+        ),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           leadingWidth: 160,
@@ -62,9 +71,7 @@ class _MainPageState extends State<MainPage> {
             children: <Widget>[
               HomePage(),
               AboutPage(),
-              Center(
-                child: Text("It's sunny here"),
-              ),
+              PortfolioPage(),
               Center(
                 child: Text("4"),
               ),

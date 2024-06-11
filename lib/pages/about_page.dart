@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/common/theme.dart';
@@ -15,7 +16,7 @@ class AboutPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Card(
-            color: const Color.fromRGBO(50, 50, 50, 1.0),
+            color: AppTheme.backGroundCardColor,
             child: Container(
               height: 400,
               padding: const EdgeInsets.all(16.0),
@@ -78,10 +79,10 @@ class AboutPage extends StatelessWidget {
                                 fontSize: 15,
                                 fontWeight: FontWeight.w500),
                           ).animate().slide(
-                              duration: Duration(milliseconds: 300),
-                              begin: Offset(1.2, 0),
-                              end: Offset(0, 0),
-                              delay: Duration(milliseconds: 300)),
+                              duration: const Duration(milliseconds: 300),
+                              begin: const Offset(1.2, 0),
+                              end: const Offset(0, 0),
+                              delay: const Duration(milliseconds: 300)),
                           const SizedBox(
                             height: 15,
                           ),
@@ -92,10 +93,10 @@ class AboutPage extends StatelessWidget {
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500),
                           ).animate().slide(
-                              duration: Duration(milliseconds: 300),
-                              begin: Offset(1.2, 0),
-                              end: Offset(0, 0),
-                              delay: Duration(milliseconds: 1000)),
+                              duration: const Duration(milliseconds: 300),
+                              begin: const Offset(1.2, 0),
+                              end: const Offset(0, 0),
+                              delay: const Duration(milliseconds: 1000)),
                         ],
                       ),
                     ),
@@ -206,6 +207,8 @@ class _SkillTabbarState extends State<SkillTabbar>
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    print('width: $width');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -238,26 +241,24 @@ class _SkillTabbarState extends State<SkillTabbar>
             children: <Widget>[
               GridView.builder(
                 itemCount: skillTechModels.length,
-                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 32,
                     crossAxisSpacing: 32,
-                    crossAxisCount: 4,
-                    childAspectRatio: 3.5),
+                    crossAxisCount: width ~/ 375,
+                    childAspectRatio: width / 375),
                 itemBuilder: (BuildContext context, int index) {
                   return _buildItem(skillTechModels[index]);
                 },
               ),
               GridView.builder(
                 itemCount: skillToolModels.length,
-                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 32,
                     crossAxisSpacing: 32,
-                    crossAxisCount: 4,
-                    childAspectRatio: 3.5),
+                    crossAxisCount: width ~/ 375,
+                    childAspectRatio: width / 375),
                 itemBuilder: (BuildContext context, int index) {
                   return _buildItem(skillToolModels[index]);
                 },
