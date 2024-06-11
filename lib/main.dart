@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Portfolio',
+      title: 'Le Huynh Phat',
       initialRoute: Routes.mainPage,
       onGenerateRoute: RouteGenerator.getRoute,
       debugShowCheckedModeBanner: false,

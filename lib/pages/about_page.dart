@@ -57,7 +57,8 @@ class AboutPage extends StatelessWidget {
                       ),
                       const CircleAvatar(
                         radius: 150,
-                        backgroundImage: AssetImage('assets/images/avatar.jpg'),
+                        backgroundImage:
+                            AssetImage('assets/images/my_avatar.jpg'),
                       ).animate().slide(
                             begin: const Offset(0, 0.3),
                             duration: const Duration(milliseconds: 300),

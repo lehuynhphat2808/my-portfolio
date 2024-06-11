@@ -90,8 +90,8 @@ class HomePage extends StatelessWidget {
                 border: Border.all(color: const Color(0xffece5c3), width: 2),
                 shape: BoxShape.circle,
                 image: const DecorationImage(
-                    image: AssetImage('assets/images/avatar.jpg'),
-                    fit: BoxFit.cover)),
+                    image: AssetImage('assets/images/my_avatar.jpg'),
+                    fit: BoxFit.fitWidth)),
           ),
         )
       ],
