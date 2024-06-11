@@ -25,88 +25,92 @@ class _BlogPageState extends State<BlogPage> {
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
-    return Row(
-      children: [
-        Expanded(
-          flex: 6,
-          child: ListView(
-            children: blogmodelList.map((e) => _buildBlogItem(e)).toList(),
+    return Padding(
+      padding:
+          EdgeInsets.symmetric(horizontal: width > 750 ? width * 0.15 : 10),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 6,
+            child: ListView(
+              children: blogmodelList.map((e) => _buildBlogItem(e)).toList(),
+            ),
           ),
-        ),
-        const SizedBox(
-          width: 16,
-        ),
-        Expanded(
-          flex: 4,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 50,
-              ),
-              GradientText(
-                "Let's share experiences, stories, and knowledge together.",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-                colors: const [Colors.white, AppTheme.indicatorColor],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const SizedBox(
-                width: 60,
-                child: Divider(
-                  thickness: 3,
-                  color: AppTheme.indicatorColor,
+          const SizedBox(
+            width: 16,
+          ),
+          Expanded(
+            flex: 4,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 50,
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Text(
-                'Topics',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            AppTheme.backGroundCardColor.withOpacity(0.2),
-                        foregroundColor: AppTheme.indicatorColor),
-                    child: const Text(
-                      'Flutter',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                GradientText(
+                  "Let's share experiences, stories, and knowledge together.",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  colors: const [Colors.white, AppTheme.indicatorColor],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const SizedBox(
+                  width: 60,
+                  child: Divider(
+                    thickness: 3,
+                    color: AppTheme.indicatorColor,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  'Topics',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              AppTheme.backGroundCardColor.withOpacity(0.2),
+                          foregroundColor: AppTheme.indicatorColor),
+                      child: const Text(
+                        'Flutter',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            AppTheme.backGroundCardColor.withOpacity(0.2),
-                        foregroundColor: AppTheme.indicatorColor),
-                    child: const Text(
-                      'Life',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                    const SizedBox(
+                      width: 8,
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        )
-      ],
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              AppTheme.backGroundCardColor.withOpacity(0.2),
+                          foregroundColor: AppTheme.indicatorColor),
+                      child: const Text(
+                        'Life',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 

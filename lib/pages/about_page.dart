@@ -10,130 +10,135 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Card(
-            color: AppTheme.backGroundCardColor,
-            child: Container(
-              height: 400,
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      Animate(
-                        effects: const [
-                          ScaleEffect(),
-                        ],
-                        child: const Row(
-                          children: [
-                            Text(
-                              'About Me',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            SizedBox(
-                              width: 250,
-                              child: Divider(
-                                thickness: 2,
-                                indent: 2,
-                                endIndent: 2,
-                                color: AppTheme.indicatorColor,
+      child: Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: width > 750 ? width * 0.15 : 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Card(
+              color: AppTheme.backGroundCardColor,
+              child: Container(
+                height: 400,
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        Animate(
+                          effects: const [
+                            ScaleEffect(),
+                          ],
+                          child: const Row(
+                            children: [
+                              Text(
+                                'About Me',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600),
                               ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              SizedBox(
+                                width: 250,
+                                child: Divider(
+                                  thickness: 2,
+                                  indent: 2,
+                                  endIndent: 2,
+                                  color: AppTheme.indicatorColor,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const CircleAvatar(
+                          radius: 150,
+                          backgroundImage:
+                              AssetImage('assets/images/my_avatar.jpg'),
+                        ).animate().slide(
+                              begin: const Offset(0, 0.3),
+                              duration: const Duration(milliseconds: 300),
                             )
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Good day everyone, my name is Le Huynh Phát. I'm a fourth year software engineering student pursuing a career as a mobile application developer. What I enjoy most about my work is the artistic aspect of creation - building applications that are not just functional tools, but deliver memorable experiences.My goal is to craft intuitive, user-friendly apps that attract and retain an engaged audience. Beyond, I aim to imprint each product with a distinct identity and message. Creativity is at the heart of my process, whether designing smooth interfaces or clever interactions that capture user attention.",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500),
+                            ).animate().slide(
+                                duration: const Duration(milliseconds: 300),
+                                begin: const Offset(2, 0),
+                                end: const Offset(0, 0),
+                                delay: const Duration(milliseconds: 300)),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            const Text(
+                              "Whether building for businesses or passion projects, I approach each commission with the same care and dedication. Clients can rely on me to balance aesthetics with usability, ensuring their brand or service is optimally represented in the digital space. If developing engaging mobile experiences piques your interest, please feel free to contact me using the details below. I'm always eager to bring new visions to life through code.",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
+                            ).animate().slide(
+                                duration: const Duration(milliseconds: 300),
+                                begin: const Offset(2, 0),
+                                end: const Offset(0, 0),
+                                delay: const Duration(milliseconds: 1000)),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      const CircleAvatar(
-                        radius: 150,
-                        backgroundImage:
-                            AssetImage('assets/images/my_avatar.jpg'),
-                      ).animate().slide(
-                            begin: const Offset(0, 0.3),
-                            duration: const Duration(milliseconds: 300),
-                          )
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Good day everyone, my name is Le Huynh Phát. I'm a fourth year software engineering student pursuing a career as a mobile application developer. What I enjoy most about my work is the artistic aspect of creation - building applications that are not just functional tools, but deliver memorable experiences.My goal is to craft intuitive, user-friendly apps that attract and retain an engaged audience. Beyond, I aim to imprint each product with a distinct identity and message. Creativity is at the heart of my process, whether designing smooth interfaces or clever interactions that capture user attention.",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500),
-                          ).animate().slide(
-                              duration: const Duration(milliseconds: 300),
-                              begin: const Offset(1.2, 0),
-                              end: const Offset(0, 0),
-                              delay: const Duration(milliseconds: 300)),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          const Text(
-                            "Whether building for businesses or passion projects, I approach each commission with the same care and dedication. Clients can rely on me to balance aesthetics with usability, ensuring their brand or service is optimally represented in the digital space. If developing engaging mobile experiences piques your interest, please feel free to contact me using the details below. I'm always eager to bring new visions to life through code.",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500),
-                          ).animate().slide(
-                              duration: const Duration(milliseconds: 300),
-                              begin: const Offset(1.2, 0),
-                              end: const Offset(0, 0),
-                              delay: const Duration(milliseconds: 1000)),
-                        ],
-                      ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          const Row(
-            children: [
-              SizedBox(
-                width: 50,
-                child: Divider(
-                  thickness: 2,
+                  ],
                 ),
               ),
-              SizedBox(
-                width: 8,
-              ),
-              Text(
-                "Skills",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          const SkillTabbar(),
-        ],
+            ),
+            const SizedBox(
+              height: 32,
+            ),
+            const Row(
+              children: [
+                SizedBox(
+                  width: 50,
+                  child: Divider(
+                    thickness: 2,
+                  ),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  "Skills",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            const SkillTabbar(),
+          ],
+        ),
       ),
     );
   }
@@ -209,6 +214,19 @@ class _SkillTabbarState extends State<SkillTabbar>
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    print("width: $width");
+    int _crossAxisCount = 4;
+    double _crossAxisSpacing = 32;
+    switch (width) {
+      case < 1075:
+        _crossAxisSpacing = 8;
+        _crossAxisCount = 2;
+
+      case < 1400:
+        _crossAxisSpacing = 16;
+        _crossAxisCount = 3;
+    }
+    print('_crossAxisCount: $_crossAxisCount');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -243,10 +261,13 @@ class _SkillTabbarState extends State<SkillTabbar>
                 itemCount: skillTechModels.length,
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 32,
-                    crossAxisSpacing: 32,
-                    crossAxisCount: width ~/ 375,
-                    childAspectRatio: width / 375),
+                    mainAxisSpacing: _crossAxisSpacing,
+                    crossAxisSpacing: _crossAxisSpacing,
+                    crossAxisCount: _crossAxisCount,
+                    childAspectRatio:
+                        ((width - ((_crossAxisCount - 1) * _crossAxisSpacing)) /
+                                _crossAxisCount) /
+                            100),
                 itemBuilder: (BuildContext context, int index) {
                   return _buildItem(skillTechModels[index]);
                 },
@@ -255,10 +276,13 @@ class _SkillTabbarState extends State<SkillTabbar>
                 itemCount: skillToolModels.length,
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 32,
-                    crossAxisSpacing: 32,
-                    crossAxisCount: width ~/ 375,
-                    childAspectRatio: width / 375),
+                    mainAxisSpacing: _crossAxisSpacing,
+                    crossAxisSpacing: _crossAxisSpacing,
+                    crossAxisCount: _crossAxisCount,
+                    childAspectRatio:
+                        ((width - ((_crossAxisCount - 1) * _crossAxisSpacing)) /
+                                _crossAxisCount) /
+                            100),
                 itemBuilder: (BuildContext context, int index) {
                   return _buildItem(skillToolModels[index]);
                 },
@@ -298,7 +322,7 @@ class _SkillTabbarState extends State<SkillTabbar>
               width: 8,
             ),
             SizedBox(
-              width: 175,
+              width: 172,
               child: Stack(
                 children: [
                   AnimatedPositioned(

@@ -47,39 +47,66 @@ class _PortfolioPageState extends State<PortfolioPage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 16,
-          ),
-          const Text(
-            'Past Project Experience',
-            style: TextStyle(
-                color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          GradientText("Explore the projects I've worked on so far",
-              colors: const [Colors.white, AppTheme.indicatorColor]),
-          const SizedBox(
-            height: 32,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GridView(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: MediaQuery.of(context).size.width ~/ 475,
-                  mainAxisSpacing: 16,
-                  childAspectRatio: 0.95),
-              children:
-                  projectModelList.map((e) => _buildProjectItem(e)).toList(),
+    double width = MediaQuery.of(context).size.width;
+    print("width: $width");
+    int _crossAxisCount = 3;
+    double _crossAxisSpacing = 16;
+    switch (width) {
+      case < 600:
+        _crossAxisSpacing = 0;
+        _crossAxisCount = 1;
+
+      case < 1075:
+        _crossAxisSpacing = 4;
+        _crossAxisCount = 1;
+
+      case < 1400:
+        _crossAxisSpacing = 8;
+        _crossAxisCount = 2;
+    }
+
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: width * 0.15),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 16,
             ),
-          )
-        ],
+            const Text(
+              'Past Project Experience',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 4,
+            ),
+            GradientText("Explore the projects I've worked on so far",
+                colors: const [Colors.white, AppTheme.indicatorColor]),
+            const SizedBox(
+              height: 32,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GridView(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: _crossAxisCount,
+                    mainAxisSpacing: _crossAxisSpacing,
+                    childAspectRatio:
+                        ((width - ((_crossAxisCount - 1) * _crossAxisSpacing)) /
+                                _crossAxisCount) /
+                            525),
+                children:
+                    projectModelList.map((e) => _buildProjectItem(e)).toList(),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

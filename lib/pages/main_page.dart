@@ -65,17 +65,13 @@ class _MainPageState extends State<MainPage> {
             )
           ],
         ),
-        body: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: width > 750 ? width * 0.15 : 10),
-          child: const TabBarView(
-            children: <Widget>[
-              HomePage(),
-              AboutPage(),
-              PortfolioPage(),
-              BlogPage(),
-            ],
-          ),
+        body: const TabBarView(
+          children: <Widget>[
+            HomePage(),
+            AboutPage(),
+            PortfolioPage(),
+            BlogPage(),
+          ],
         ),
       ),
     );
