@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/common/theme.dart';
 import 'package:portfolio/pages/about_page.dart';
+import 'package:portfolio/pages/blog_page.dart';
 import 'package:portfolio/pages/home_page.dart';
 import 'package:portfolio/pages/portfolio_page.dart';
 import 'dart:html' as html;
@@ -72,9 +73,7 @@ class _MainPageState extends State<MainPage> {
               HomePage(),
               AboutPage(),
               PortfolioPage(),
-              Center(
-                child: Text("4"),
-              ),
+              BlogPage(),
             ],
           ),
         ),

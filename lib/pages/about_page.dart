@@ -208,7 +208,6 @@ class _SkillTabbarState extends State<SkillTabbar>
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    print('width: $width');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
