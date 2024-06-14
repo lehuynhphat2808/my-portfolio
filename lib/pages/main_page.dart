@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/common/theme.dart';
@@ -6,6 +7,7 @@ import 'package:portfolio/pages/about_page.dart';
 import 'package:portfolio/pages/blog_page.dart';
 import 'package:portfolio/pages/home_page.dart';
 import 'package:portfolio/pages/portfolio_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:html' as html;
 
 import '../router/router_manager.dart';
@@ -28,11 +30,6 @@ class _MainPageState extends State<MainPage> {
       length: 4,
       child: Scaffold(
         backgroundColor: AppTheme.appBackground,
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {
-        //     html.window.location.href = Routes.productDetail;
-        //   },
-        // ),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           leadingWidth: 160,
@@ -52,6 +49,24 @@ class _MainPageState extends State<MainPage> {
           title: _buildTabBar(),
           centerTitle: true,
           actions: [
+            IconButton(
+                onPressed: () {
+                  _launchCallClient('+84 387790894');
+                },
+                icon: const Icon(
+                  Icons.call,
+                  size: 24,
+                  color: Colors.white,
+                )),
+            IconButton(
+                onPressed: () {
+                  _launchMailClient('lehuynhphat2808@gmail.com');
+                },
+                icon: const Icon(
+                  Icons.email,
+                  size: 24,
+                  color: Colors.white,
+                )),
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: IconButton(
@@ -78,6 +93,47 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     );
+  }
+
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((MapEntry<String, String> e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
+  }
+
+  void _launchMailClient(String targetEmail) async {
+    try {
+      final Uri emailLaunchUri = Uri(
+        scheme: 'mailto',
+        path: targetEmail,
+        query: encodeQueryParameters(<String, String>{
+          'subject': 'Hi LH Phat',
+        }),
+      );
+
+      await launchUrl(emailLaunchUri);
+    } catch (e) {
+      await Clipboard.setData(ClipboardData(text: targetEmail));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Cannot open mail. Email was copied to Clipboard')));
+    }
+  }
+
+  void _launchCallClient(String phoneNumber) async {
+    try {
+      final Uri emailLaunchUri = Uri(
+        scheme: 'tel',
+        path: phoneNumber,
+      );
+
+      await launchUrl(emailLaunchUri);
+    } catch (e) {
+      await Clipboard.setData(ClipboardData(text: phoneNumber));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content:
+              Text('Cannot make call. Phone number was copied to Clipboard')));
+    }
   }
 
   Widget _buildTabBar() {
