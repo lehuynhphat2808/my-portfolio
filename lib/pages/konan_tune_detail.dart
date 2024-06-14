@@ -3,38 +3,31 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/common/theme.dart';
 import 'dart:html' as html;
 
-class QuizletCloneDetailPage extends StatefulWidget {
-  const QuizletCloneDetailPage({super.key});
+class KonanTuneDetailPage extends StatefulWidget {
+  const KonanTuneDetailPage({super.key});
 
   @override
-  State<QuizletCloneDetailPage> createState() => _QuizletCloneDetailPageState();
+  State<KonanTuneDetailPage> createState() => _KonanTuneDetailPageState();
 }
 
-class _QuizletCloneDetailPageState extends State<QuizletCloneDetailPage> {
+class _KonanTuneDetailPageState extends State<KonanTuneDetailPage> {
   TextStyle textStyle = const TextStyle(color: Colors.white, fontSize: 16);
   bool hoverGithub = false;
 
   List<String> projectImages = [
-    'assets/images/quizlet_clone/0.png',
-    'assets/images/quizlet_clone/1.png',
-    'assets/images/quizlet_clone/2.png',
-    'assets/images/quizlet_clone/3.png',
-    'assets/images/quizlet_clone/4.png',
-    'assets/images/quizlet_clone/5.png',
-    'assets/images/quizlet_clone/6.png',
-    'assets/images/quizlet_clone/7.png',
-    'assets/images/quizlet_clone/8.png',
-    'assets/images/quizlet_clone/9.png',
-    'assets/images/quizlet_clone/10.png',
-    'assets/images/quizlet_clone/11.png',
-    'assets/images/quizlet_clone/12.png',
-    'assets/images/quizlet_clone/13.png',
-    'assets/images/quizlet_clone/14.png',
-    'assets/images/quizlet_clone/15.png',
-    'assets/images/quizlet_clone/16.png',
-    'assets/images/quizlet_clone/17.png',
-    'assets/images/quizlet_clone/18.png',
-    'assets/images/quizlet_clone/19.png',
+    'assets/images/konan_tune/1.png',
+    'assets/images/konan_tune/2.png',
+    'assets/images/konan_tune/3.png',
+    'assets/images/konan_tune/4.png',
+    'assets/images/konan_tune/5.png',
+    'assets/images/konan_tune/6.png',
+    'assets/images/konan_tune/7.png',
+    'assets/images/konan_tune/8.png',
+    'assets/images/konan_tune/9.png',
+    'assets/images/konan_tune/10.png',
+    'assets/images/konan_tune/11.png',
+    'assets/images/konan_tune/12.png',
+    'assets/images/konan_tune/13.png',
   ];
   CarouselController buttonCarouselController = CarouselController();
   int currentPage = 0;
@@ -118,14 +111,14 @@ class _QuizletCloneDetailPageState extends State<QuizletCloneDetailPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Foreign language vocabulary learning application',
+                    'App for buying and selling musical instruments',
                     style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
                   const Text(
-                    'Flutter, Dart',
+                    'Kotlin, Spring boot',
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -144,11 +137,11 @@ class _QuizletCloneDetailPageState extends State<QuizletCloneDetailPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "– Describe Project: The application supports users in learning English vocabulary in flashcard format, similar to the Quizlet application. Basically, the application allows users to create their own topics containing vocabulary related to a specific topic, then study and practice through a variety of quizzes and exercises.",
+                          "– Describe Project: The application allows buying and selling musical instruments approved by the administrator.",
                           style: textStyle,
                         ),
                         Text(
-                          "– Technology: Flutter framework , Bloc pattern, Docker.",
+                          "– Technology: MVVM structure, Spring Boot, Kotlin, MySQL.",
                           style: textStyle,
                         ),
                         MouseRegion(
@@ -165,15 +158,15 @@ class _QuizletCloneDetailPageState extends State<QuizletCloneDetailPage> {
                           child: GestureDetector(
                             onTap: () {
                               html.window.open(
-                                  'https://github.com/lehuynhphat2808/quizlet-frontend',
-                                  'Le Huynh Phat quizlet-clone');
+                                  'https://github.com/lehuynhphat2808/konan-tune',
+                                  "Le Huynh Phat konan's tune");
                             },
                             child: Container(
                               color: hoverGithub
                                   ? AppTheme.indicatorColor.withOpacity(0.3)
                                   : null,
                               child: Text(
-                                '– Github: https://github.com/lehuynhphat2808/quizlet-frontend',
+                                '– Github: https://github.com/lehuynhphat2808/konan-tune',
                                 style: textStyle,
                               ),
                             ),

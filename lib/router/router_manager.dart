@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/pages/konan_tune_detail.dart';
 import 'package:portfolio/pages/main_page.dart';
 import 'package:portfolio/pages/portfolio_detail_page.dart';
 import 'package:portfolio/pages/quizlet_clone_detail.dart';
@@ -7,6 +8,7 @@ class Routes {
   static const String productDetail = "/productDetail";
   static const String portfolioDetail = "/portfolioDetail";
   static const String quizletCloneDetail = "/quizletCloneDetail";
+  static const String konanTuneDetail = "/konanTuneDetail";
   static const String mainPage = "/";
 }
 
@@ -28,6 +30,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: routeSettings,
           builder: (context) => const QuizletCloneDetailPage(),
+        );
+      case Routes.konanTuneDetail:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (context) => const KonanTuneDetailPage(),
         );
       default:
         return unDefinedRoute();

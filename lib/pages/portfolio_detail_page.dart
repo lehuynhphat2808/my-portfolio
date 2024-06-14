@@ -41,7 +41,6 @@ class _PortfolioDetailPageState extends State<PortfolioDetailPage> {
                   Container(
                     height: height * 0.75,
                     width: width,
-                    color: AppTheme.backGroundCardColor,
                     // padding:
                     //     EdgeInsets.symmetric(horizontal: width * 0.2, vertical: 32),
                     child: CarouselSlider(
@@ -56,11 +55,9 @@ class _PortfolioDetailPageState extends State<PortfolioDetailPage> {
                                 width: MediaQuery.of(context).size.width,
                                 margin:
                                     const EdgeInsets.symmetric(horizontal: 5.0),
-                                decoration: const BoxDecoration(
-                                    color: AppTheme.backGroundCardColor),
                                 child: Image.asset(
                                   i,
-                                  fit: BoxFit.cover,
+                                  fit: BoxFit.fitHeight,
                                 ));
                           },
                         );

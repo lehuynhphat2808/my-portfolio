@@ -37,6 +37,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
     ProjectModel(
         image: 'assets/images/konan_tune_project.png',
         name: "Konan's Tune",
+        detailUrl: Routes.konanTuneDetail,
         detail:
             "This musical instrument app allows buyers and sellers to conveniently transact approved items. Administrators screen listings to maintain accurate product details for various guitars, pianos, drums and other available instruments. Buyers can browse detailed listings with photos and prices to compare and purchase items through secure online transactions. Sellers must register to submit their posts for review. Reviews from past customers provide valuable feedback on each item page. The app intends to connect a community of music lovers through a curated marketplace while the administrators ensure quality of content and purchase experiences.",
         tech: 'Kotlin, Spring Boot',
@@ -51,7 +52,6 @@ class _PortfolioPageState extends State<PortfolioPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    print("width: $width");
     int _crossAxisCount = 3;
     double _crossAxisSpacing = 16;
     switch (width) {
