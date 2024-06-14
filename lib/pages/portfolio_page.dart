@@ -29,6 +29,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
     ProjectModel(
         image: 'assets/images/quizlet_project.png',
         name: 'Quizlet Clone',
+        detailUrl: Routes.quizletCloneDetail,
         detail:
             "The application supports users in learning English vocabulary in flashcard format, similar to the Quizlet application. Basically, the application allows users to create their own topics containing vocabulary related to a specific topic, then study and practice through a variety of quizzes and exercises.",
         tech: 'Dart, Flutter, Spring Boot',
