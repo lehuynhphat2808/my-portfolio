@@ -7,6 +7,7 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'dart:html' as html;
 
 import '../common/theme.dart';
+import '../router/router_manager.dart';
 
 class PortfolioPage extends StatefulWidget {
   const PortfolioPage({super.key});
@@ -23,7 +24,8 @@ class _PortfolioPageState extends State<PortfolioPage> {
         detail:
             "My personal website, I created this website to display my profile, skiils and projects. As woll as my place to try new technology.",
         tech: 'Dart, Flutter',
-        github: 'https://github.com/lehuynhphat2808/my-portfolio'),
+        github: 'https://github.com/lehuynhphat2808/my-portfolio',
+        detailUrl: Routes.portfolioDetail),
     ProjectModel(
         image: 'assets/images/quizlet_project.png',
         name: 'Quizlet Clone',
@@ -130,8 +132,8 @@ class _PortfolioPageState extends State<PortfolioPage> {
             top: projectModel.isSelected ? 0 : 20,
             child: GestureDetector(
               onTap: () {
-                projectModel.github.isNotEmpty
-                    ? html.window.open(projectModel.github, projectModel.name)
+                projectModel.detailUrl.isNotEmpty
+                    ? Navigator.pushNamed(context, projectModel.detailUrl)
                     : null;
               },
               child: Container(
@@ -201,23 +203,36 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               )
                             ],
                           ),
-                          const Align(
+                          Align(
                             alignment: Alignment.bottomCenter,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                FaIcon(
-                                  FontAwesomeIcons.github,
-                                  color: Colors.white,
-                                  size: 16,
+                                IconButton(
+                                  icon: FaIcon(
+                                    FontAwesomeIcons.github,
+                                    color: Colors.white,
+                                    size: 16,
+                                  ),
+                                  onPressed: () {
+                                    projectModel.github.isNotEmpty
+                                        ? html.window.open(projectModel.github,
+                                            projectModel.name)
+                                        : null;
+                                  },
                                 ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Icon(
-                                  CupertinoIcons.share,
-                                  color: Colors.white,
-                                  size: 16,
+                                IconButton(
+                                  onPressed: () {
+                                    projectModel.github.isNotEmpty
+                                        ? html.window.open(projectModel.github,
+                                            projectModel.name)
+                                        : null;
+                                  },
+                                  icon: Icon(
+                                    CupertinoIcons.share,
+                                    color: Colors.white,
+                                    size: 16,
+                                  ),
                                 )
                               ],
                             ),

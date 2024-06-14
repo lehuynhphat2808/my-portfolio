@@ -4,6 +4,7 @@ class ProjectModel {
   final String detail;
   final String tech;
   String github;
+  String detailUrl;
   bool isSelected;
 
   ProjectModel(
@@ -12,5 +13,6 @@ class ProjectModel {
       required this.detail,
       required this.tech,
       this.isSelected = false,
-      this.github = ''});
+      this.github = '',
+      this.detailUrl = ''});
 }

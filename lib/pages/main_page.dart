@@ -55,7 +55,10 @@ class _MainPageState extends State<MainPage> {
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  html.window.open('https://github.com/lehuynhphat2808',
+                      'Le Huynh Phat github');
+                },
                 icon: const FaIcon(
                   FontAwesomeIcons.github,
                   size: 24,

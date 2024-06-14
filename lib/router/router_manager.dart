@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/main_page.dart';
+import 'package:portfolio/pages/portfolio_detail_page.dart';
 
 class Routes {
   static const String productDetail = "/productDetail";
+  static const String portfolioDetail = "/portfolioDetail";
   static const String mainPage = "/";
 }
 
@@ -15,6 +17,11 @@ class RouteGenerator {
       case Routes.mainPage:
         return MaterialPageRoute(
             settings: routeSettings, builder: (context) => const MainPage());
+      case Routes.portfolioDetail:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (context) => const PortfolioDetailPage(),
+        );
       default:
         return unDefinedRoute();
     }
