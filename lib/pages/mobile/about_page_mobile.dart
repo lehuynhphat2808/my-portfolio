@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/common/theme.dart';
+import 'package:portfolio/model/skill_item_model.dart';
 
-import '../model/skill_model.dart';
+import '../../model/skill_model.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -22,55 +25,51 @@ class AboutPage extends StatelessWidget {
             Card(
               color: AppTheme.backGroundCardColor,
               child: Container(
-                height: 400,
+                height: 600,
                 padding: const EdgeInsets.all(16.0),
-                child: Row(
+                child: Column(
                   children: [
-                    Column(
-                      children: [
-                        Animate(
-                          effects: const [
-                            ScaleEffect(),
-                          ],
-                          child: const Row(
-                            children: [
-                              Text(
-                                'About Me',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              SizedBox(
-                                width: 250,
-                                child: Divider(
-                                  thickness: 2,
-                                  indent: 2,
-                                  endIndent: 2,
-                                  color: AppTheme.indicatorColor,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        const CircleAvatar(
-                          radius: 150,
-                          backgroundImage:
-                              AssetImage('assets/images/my_avatar.jpg'),
-                        ).animate().slide(
-                              begin: const Offset(0, 0.3),
-                              duration: const Duration(milliseconds: 300),
-                            )
+                    Animate(
+                      effects: const [
+                        ScaleEffect(),
                       ],
+                      child: const Row(
+                        children: [
+                          Text(
+                            'About Me',
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          SizedBox(
+                            width: 100,
+                            child: Divider(
+                              thickness: 2,
+                              indent: 2,
+                              endIndent: 2,
+                              color: AppTheme.indicatorColor,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     const SizedBox(
-                      width: 16,
+                      height: 8,
+                    ),
+                    const CircleAvatar(
+                      radius: 100,
+                      backgroundImage:
+                          AssetImage('assets/images/my_avatar.jpg'),
+                    ).animate().slide(
+                          begin: const Offset(0, 0.3),
+                          duration: const Duration(milliseconds: 300),
+                        ),
+                    const SizedBox(
+                      height: 8,
                     ),
                     Expanded(
                       child: SingleChildScrollView(
@@ -198,6 +197,99 @@ class _SkillTabbarState extends State<SkillTabbar>
         name: 'MySQL',
         level: 'Beginner'),
   ];
+  List<SkillItemModel> skillTechItemModels = [
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+        image: 'assets/images/flutter_icon.png',
+        name: 'Flutter',
+        level: 'Competent',
+      ),
+    ),
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/kotlin_icon.png',
+          name: 'Kotlin',
+          level: 'Intermediate'),
+    ),
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/spring_boot_icon.png',
+          name: 'Spring Boot',
+          level: 'Intermediate'),
+    ),
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/firebase_icon.png',
+          name: 'Firebase',
+          level: 'Intermediate'),
+    ),
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/dart_icon.png',
+          name: 'Dart',
+          level: 'Competent'),
+    ),
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/java_icon.png',
+          name: 'Java',
+          level: 'Intermediate'),
+    ),
+    SkillItemModel(
+      crossAxisCellCount: 16,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/smart_contract_icon.png',
+          name: 'Interact Smart Contract',
+          level: 'Beginner'),
+    ),
+  ];
+  List<SkillItemModel> skillToolItemModels = [
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/git_icon.png',
+          name: 'Git',
+          level: 'Intermediate'),
+    ),
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/github_icon.png',
+          name: 'Github',
+          level: 'Intermediate'),
+    ),
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/github_icon.png',
+          name: 'Github',
+          level: 'Intermediate'),
+    ),
+    SkillItemModel(
+      crossAxisCellCount: 8,
+      mainAxisCellCount: 3,
+      skillModel: SkillModel(
+          image: 'assets/images/mysql_icon.png',
+          name: 'MySQL',
+          level: 'Beginner'),
+    ),
+  ];
 
   @override
   void initState() {
@@ -214,94 +306,78 @@ class _SkillTabbarState extends State<SkillTabbar>
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    int _crossAxisCount = 4;
-    double _crossAxisSpacing = 32;
-    switch (width) {
-      case < 1075:
-        _crossAxisSpacing = 8;
-        _crossAxisCount = 2;
+    int _crossAxisCount = 2;
+    double _crossAxisSpacing = 8;
 
-      case < 1400:
-        _crossAxisSpacing = 16;
-        _crossAxisCount = 3;
-    }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        SizedBox(
-          width: 250,
-          child: TabBar.secondary(
-            controller: _tabController,
-            indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(
-                8.0,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(
+            width: 250,
+            child: TabBar.secondary(
+              controller: _tabController,
+              indicator: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  8.0,
+                ),
+                color: AppTheme.indicatorColor.withOpacity(0.3),
               ),
-              color: AppTheme.indicatorColor.withOpacity(0.3),
+              dividerHeight: 0,
+              labelColor: Colors.yellowAccent,
+              labelStyle: const TextStyle(fontWeight: FontWeight.w600),
+              tabs: const <Widget>[
+                Tab(text: 'Tech Stack'),
+                Tab(text: 'Tools'),
+              ],
             ),
-            dividerHeight: 0,
-            labelColor: Colors.yellowAccent,
-            labelStyle: const TextStyle(fontWeight: FontWeight.w600),
-            tabs: const <Widget>[
-              Tab(text: 'Tech Stack'),
-              Tab(text: 'Tools'),
-            ],
           ),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        Container(
-          height: 250,
-          child: TabBarView(
-            controller: _tabController,
-            children: <Widget>[
-              GridView.builder(
-                itemCount: skillTechModels.length,
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: _crossAxisSpacing,
-                    crossAxisSpacing: _crossAxisSpacing,
-                    crossAxisCount: _crossAxisCount,
-                    childAspectRatio:
-                        ((width - ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-                                _crossAxisCount) /
-                            100),
-                itemBuilder: (BuildContext context, int index) {
-                  return _buildItem(skillTechModels[index]);
-                },
-              ),
-              GridView.builder(
-                itemCount: skillToolModels.length,
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: _crossAxisSpacing,
-                    crossAxisSpacing: _crossAxisSpacing,
-                    crossAxisCount: _crossAxisCount,
-                    childAspectRatio:
-                        ((width - ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-                                _crossAxisCount) /
-                            100),
-                itemBuilder: (BuildContext context, int index) {
-                  return _buildItem(skillToolModels[index]);
-                },
-              ),
-            ],
+          const SizedBox(
+            height: 8,
           ),
-        ),
-      ],
+          Container(
+            height: 400,
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                StaggeredGrid.count(
+                    axisDirection: AxisDirection.down,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    crossAxisCount: 16,
+                    children: skillTechItemModels
+                        .map((e) => StaggeredGridTile.count(
+                              crossAxisCellCount: e.crossAxisCellCount,
+                              mainAxisCellCount: e.mainAxisCellCount,
+                              child: _buildItem(e),
+                            ))
+                        .toList()),
+                StaggeredGrid.count(
+                    axisDirection: AxisDirection.down,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    crossAxisCount: 16,
+                    children: skillToolItemModels
+                        .map((e) => StaggeredGridTile.count(
+                              crossAxisCellCount: e.crossAxisCellCount,
+                              mainAxisCellCount: e.mainAxisCellCount,
+                              child: _buildItem(e),
+                            ))
+                        .toList()),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _buildItem(SkillModel skillModel) {
-    return MouseRegion(
-      onHover: (event) {
+  Widget _buildItem(SkillItemModel skillItemModel) {
+    SkillModel skillModel = skillItemModel.skillModel;
+    return GestureDetector(
+      onTap: () {
         setState(() {
-          skillModel.selected = true;
-        });
-      },
-      onExit: (event) {
-        setState(() {
-          skillModel.selected = false;
+          skillModel.selected = !skillModel.selected;
         });
       },
       child: Container(
@@ -320,14 +396,13 @@ class _SkillTabbarState extends State<SkillTabbar>
               width: 8,
             ),
             SizedBox(
-              width: 172,
+              width: 12.5 * skillItemModel.crossAxisCellCount,
               child: Stack(
                 children: [
                   AnimatedPositioned(
                     duration: const Duration(milliseconds: 500),
                     top: skillModel.selected ? 0 : 10,
                     child: SizedBox(
-                      width: 175,
                       child: Text(
                         skillModel.name,
                         overflow: TextOverflow.ellipsis,

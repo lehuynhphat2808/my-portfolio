@@ -1,25 +1,25 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/common/theme.dart';
-import 'package:portfolio/pages/about_page.dart';
-import 'package:portfolio/pages/blog_page.dart';
-import 'package:portfolio/pages/home_page.dart';
-import 'package:portfolio/pages/portfolio_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:html' as html;
 
-import '../router/router_manager.dart';
+import 'about_page_mobile.dart';
+import 'blog_page_mobile.dart';
+import 'home_page_mobile.dart';
+import 'portfolio_page_mobile.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class MainPageMobile extends StatefulWidget {
+  const MainPageMobile({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<MainPageMobile> createState() => _MainPageMobileState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageMobileState extends State<MainPageMobile> {
   late double width;
 
   @override
@@ -38,16 +38,14 @@ class _MainPageState extends State<MainPage> {
             child: Padding(
               padding: EdgeInsets.only(top: 8.0),
               child: Text(
-                'leHuynhPhat();',
+                'leHuynhPhat2();',
                 style: TextStyle(
                     color: AppTheme.indicatorColor,
                     fontWeight: FontWeight.w800,
-                    fontSize: 20),
+                    fontSize: 16),
               ),
             ),
           ),
-          title: _buildTabBar(),
-          centerTitle: true,
           actions: [
             IconButton(
                 onPressed: () {
@@ -83,12 +81,19 @@ class _MainPageState extends State<MainPage> {
             )
           ],
         ),
-        body: const TabBarView(
-          children: <Widget>[
-            HomePage(),
-            AboutPage(),
-            PortfolioPage(),
-            BlogPage(),
+        body: Column(
+          children: [
+            _buildTabBar(),
+            Expanded(
+              child: const TabBarView(
+                children: <Widget>[
+                  HomePage(),
+                  AboutPage(),
+                  PortfolioPage(),
+                  BlogPage(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -137,36 +142,31 @@ class _MainPageState extends State<MainPage> {
   }
 
   Widget _buildTabBar() {
-    return SizedBox(
-      width: 315,
-      child: TabBar(
-        unselectedLabelStyle: GoogleFonts.zcoolXiaoWei(
-            textStyle: const TextStyle(
-                color: AppTheme.unClickColor,
-                fontWeight: FontWeight.w600,
-                fontSize: 12)),
-        labelStyle: GoogleFonts.zcoolXiaoWei(
-            textStyle: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 12)),
-        dividerColor: Colors.transparent,
-        indicatorColor: AppTheme.indicatorColor,
-        tabs: const <Widget>[
-          Tab(
-            text: 'Home',
-          ),
-          Tab(
-            text: 'About',
-          ),
-          Tab(
-            text: 'Portfolio',
-          ),
-          Tab(
-            text: 'Blog',
-          ),
-        ],
-      ),
+    return TabBar(
+      unselectedLabelStyle: GoogleFonts.zcoolXiaoWei(
+          textStyle: const TextStyle(
+              color: AppTheme.unClickColor,
+              fontWeight: FontWeight.w600,
+              fontSize: 12)),
+      labelStyle: GoogleFonts.zcoolXiaoWei(
+          textStyle: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12)),
+      dividerColor: Colors.transparent,
+      indicatorColor: AppTheme.indicatorColor,
+      tabs: const <Widget>[
+        Tab(
+          text: 'Home',
+        ),
+        Tab(
+          text: 'About',
+        ),
+        Tab(
+          text: 'Portfolio',
+        ),
+        Tab(
+          text: 'Blog',
+        ),
+      ],
     );
   }
 }

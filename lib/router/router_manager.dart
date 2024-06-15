@@ -1,11 +1,17 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/pages/konan_tune_detail.dart';
-import 'package:portfolio/pages/main_page.dart';
-import 'package:portfolio/pages/portfolio_detail_page.dart';
-import 'package:portfolio/pages/quizlet_clone_detail.dart';
+import 'package:portfolio/pages/desktop/konan_tune_detail.dart';
+import 'package:portfolio/pages/desktop/main_page.dart';
+import 'package:portfolio/pages/mobile/konan_tune_detail_mobile.dart';
+import 'package:portfolio/pages/mobile/main_page_mobile.dart';
+import 'package:portfolio/pages/desktop/portfolio_detail_page.dart';
+import 'package:portfolio/pages/desktop/quizlet_clone_detail.dart';
+import 'package:portfolio/pages/mobile/portfolio_page_mobile.dart';
+import 'package:portfolio/pages/mobile/quizlet_clone_detail_mobile.dart';
+
+import '../data/constants.dart';
 
 class Routes {
-  static const String productDetail = "/productDetail";
   static const String portfolioDetail = "/portfolioDetail";
   static const String quizletCloneDetail = "/quizletCloneDetail";
   static const String konanTuneDetail = "/konanTuneDetail";
@@ -15,12 +21,12 @@ class Routes {
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case Routes.productDetail:
-        return MaterialPageRoute(
-            settings: routeSettings, builder: (context) => const MainPage());
       case Routes.mainPage:
         return MaterialPageRoute(
-            settings: routeSettings, builder: (context) => const MainPage());
+            settings: routeSettings,
+            builder: (context) =>
+                Constant.isDesktop ? const MainPage() : const MainPageMobile());
+
       case Routes.portfolioDetail:
         return MaterialPageRoute(
           settings: routeSettings,
@@ -29,12 +35,16 @@ class RouteGenerator {
       case Routes.quizletCloneDetail:
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: (context) => const QuizletCloneDetailPage(),
+          builder: (context) => Constant.isDesktop
+              ? const QuizletCloneDetailPage()
+              : const QuizletCloneDetailPageMobile(),
         );
       case Routes.konanTuneDetail:
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: (context) => const KonanTuneDetailPage(),
+          builder: (context) => Constant.isDesktop
+              ? const KonanTuneDetailPage()
+              : const KonanTuneDetailPageMobile(),
         );
       default:
         return unDefinedRoute();

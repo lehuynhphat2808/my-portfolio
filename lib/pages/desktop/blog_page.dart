@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:portfolio/model/blog_model.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'dart:html' as html;
-import '../common/theme.dart';
+import '../../common/theme.dart';
 
 class BlogPage extends StatefulWidget {
   const BlogPage({super.key});

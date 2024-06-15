@@ -1,9 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/common/theme.dart';
 import 'dart:html' as html;
+
+import '../../data/constants.dart';
 
 class PortfolioDetailPage extends StatefulWidget {
   const PortfolioDetailPage({super.key});
@@ -35,10 +38,10 @@ class _PortfolioDetailPageState extends State<PortfolioDetailPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: height * 0.75,
+              height: Constant.isDesktop ? height * 0.75 : height * 0.5,
               child: Stack(
                 children: [
-                  Container(
+                  SizedBox(
                     height: height * 0.75,
                     width: width,
                     // padding:
@@ -138,34 +141,43 @@ class _PortfolioDetailPageState extends State<PortfolioDetailPage> {
                           "– Describe Project: My personal website, I created this website to display my profile, skiils and projects. As woll as my place to try new technology.",
                           style: textStyle,
                         ),
-                        MouseRegion(
-                          onHover: (event) {
-                            setState(() {
-                              hoverGithub = true;
-                            });
-                          },
-                          onExit: (event) {
-                            setState(() {
-                              hoverGithub = false;
-                            });
-                          },
-                          child: GestureDetector(
-                            onTap: () {
-                              html.window.open(
-                                  'https://github.com/lehuynhphat2808/my-portfolio',
-                                  'Le Huynh Phat portfolio');
-                            },
-                            child: Container(
-                              color: hoverGithub
-                                  ? AppTheme.indicatorColor.withOpacity(0.3)
-                                  : null,
-                              child: Text(
-                                '– Github: https://github.com/lehuynhphat2808/my-portfolio',
-                                style: textStyle,
+                        Constant.isDesktop
+                            ? MouseRegion(
+                                onHover: (event) {
+                                  setState(() {
+                                    hoverGithub = true;
+                                  });
+                                },
+                                onExit: (event) {
+                                  setState(() {
+                                    hoverGithub = false;
+                                  });
+                                },
+                                child: GestureDetector(
+                                  onTap: () {
+                                    html.window.open(
+                                        'https://github.com/lehuynhphat2808/my-portfolio',
+                                        'Le Huynh Phat portfolio');
+                                  },
+                                  child: Container(
+                                    color: hoverGithub
+                                        ? AppTheme.indicatorColor
+                                            .withOpacity(0.3)
+                                        : null,
+                                    child: Text(
+                                      '– Github: https://github.com/lehuynhphat2808/my-portfolio',
+                                      style: textStyle,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : Container(
+                                color: AppTheme.indicatorColor.withOpacity(0.3),
+                                child: Text(
+                                  '– Github: https://github.com/lehuynhphat2808/my-portfolio',
+                                  style: textStyle,
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                   )
