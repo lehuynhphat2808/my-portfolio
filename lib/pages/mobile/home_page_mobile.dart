@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
                         textStyle: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
-                            foreground: Paint()..shader = linearGradient),
+                            color: AppTheme.indicatorColor),
                         speed: Duration(milliseconds: 250)),
                   ],
                 ),

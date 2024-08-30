@@ -30,7 +30,8 @@ class _KonanTuneDetailPageMobileState extends State<KonanTuneDetailPageMobile> {
     'assets/images/konan_tune/12.png',
     'assets/images/konan_tune/13.png',
   ];
-  CarouselController buttonCarouselController = CarouselController();
+  CarouselSliderController buttonCarouselController =
+      CarouselSliderController();
   int currentPage = 0;
 
   @override

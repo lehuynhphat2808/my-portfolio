@@ -16,7 +16,8 @@ class PortfolioDetailPage extends StatefulWidget {
 }
 
 class _PortfolioDetailPageState extends State<PortfolioDetailPage> {
-  CarouselController buttonCarouselController = CarouselController();
+  CarouselSliderController buttonCarouselController =
+      CarouselSliderController();
   int currentPage = 0;
   List<String> projectImages = [
     'assets/images/portfolio/1.png',

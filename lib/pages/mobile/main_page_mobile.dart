@@ -38,7 +38,7 @@ class _MainPageMobileState extends State<MainPageMobile> {
             child: Padding(
               padding: EdgeInsets.only(top: 8.0),
               child: Text(
-                'leHuynhPhat2();',
+                'leHuynhPhat();',
                 style: TextStyle(
                     color: AppTheme.indicatorColor,
                     fontWeight: FontWeight.w800,

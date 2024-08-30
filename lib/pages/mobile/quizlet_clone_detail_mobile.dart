@@ -39,7 +39,8 @@ class _QuizletCloneDetailPageMobileState
     'assets/images/quizlet_clone/18.png',
     'assets/images/quizlet_clone/19.png',
   ];
-  CarouselController buttonCarouselController = CarouselController();
+  CarouselSliderController buttonCarouselController =
+      CarouselSliderController();
   int currentPage = 0;
 
   @override

@@ -7,7 +7,7 @@ class AppTheme {
 
   static const dividerColor = Color(0xFFC4CFDD);
 
-  static const unClickColor = Color(0xff1c1e25);
+  static const unClickColor = Color(0xff7c7c7c);
 
   static const unClickTextColor = Color(0xFFA6A6A6);
 
