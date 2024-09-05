@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/common/theme.dart';
@@ -214,16 +213,16 @@ class _SkillTabbarState extends State<SkillTabbar>
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    int _crossAxisCount = 4;
-    double _crossAxisSpacing = 32;
+    int crossAxisCount = 4;
+    double crossAxisSpacing = 32;
     switch (width) {
       case < 1075:
-        _crossAxisSpacing = 8;
-        _crossAxisCount = 2;
+        crossAxisSpacing = 8;
+        crossAxisCount = 2;
 
       case < 1400:
-        _crossAxisSpacing = 16;
-        _crossAxisCount = 3;
+        crossAxisSpacing = 16;
+        crossAxisCount = 3;
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -250,7 +249,7 @@ class _SkillTabbarState extends State<SkillTabbar>
         const SizedBox(
           height: 8,
         ),
-        Container(
+        SizedBox(
           height: 250,
           child: TabBarView(
             controller: _tabController,
@@ -259,12 +258,12 @@ class _SkillTabbarState extends State<SkillTabbar>
                 itemCount: skillTechModels.length,
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: _crossAxisSpacing,
-                    crossAxisSpacing: _crossAxisSpacing,
-                    crossAxisCount: _crossAxisCount,
+                    mainAxisSpacing: crossAxisSpacing,
+                    crossAxisSpacing: crossAxisSpacing,
+                    crossAxisCount: crossAxisCount,
                     childAspectRatio:
-                        ((width - ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-                                _crossAxisCount) /
+                        ((width - ((crossAxisCount - 1) * crossAxisSpacing)) /
+                                crossAxisCount) /
                             100),
                 itemBuilder: (BuildContext context, int index) {
                   return _buildItem(skillTechModels[index]);
@@ -274,12 +273,12 @@ class _SkillTabbarState extends State<SkillTabbar>
                 itemCount: skillToolModels.length,
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: _crossAxisSpacing,
-                    crossAxisSpacing: _crossAxisSpacing,
-                    crossAxisCount: _crossAxisCount,
+                    mainAxisSpacing: crossAxisSpacing,
+                    crossAxisSpacing: crossAxisSpacing,
+                    crossAxisCount: crossAxisCount,
                     childAspectRatio:
-                        ((width - ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-                                _crossAxisCount) /
+                        ((width - ((crossAxisCount - 1) * crossAxisSpacing)) /
+                                crossAxisCount) /
                             100),
                 itemBuilder: (BuildContext context, int index) {
                   return _buildItem(skillToolModels[index]);
@@ -340,7 +339,7 @@ class _SkillTabbarState extends State<SkillTabbar>
                     ),
                   ),
                   AnimatedPositioned(
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     top: skillModel.selected ? 20 : 50,
                     child: SizedBox(
                       width: 150,

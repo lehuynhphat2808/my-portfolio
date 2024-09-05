@@ -1,12 +1,11 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/pages/desktop/chatting_detail.dart';
 import 'package:portfolio/pages/desktop/konan_tune_detail.dart';
 import 'package:portfolio/pages/desktop/main_page.dart';
 import 'package:portfolio/pages/mobile/konan_tune_detail_mobile.dart';
 import 'package:portfolio/pages/mobile/main_page_mobile.dart';
 import 'package:portfolio/pages/desktop/portfolio_detail_page.dart';
 import 'package:portfolio/pages/desktop/quizlet_clone_detail.dart';
-import 'package:portfolio/pages/mobile/portfolio_page_mobile.dart';
 import 'package:portfolio/pages/mobile/quizlet_clone_detail_mobile.dart';
 
 import '../data/constants.dart';
@@ -15,6 +14,7 @@ class Routes {
   static const String portfolioDetail = "/portfolioDetail";
   static const String quizletCloneDetail = "/quizletCloneDetail";
   static const String konanTuneDetail = "/konanTuneDetail";
+  static const String chattingDetail = "/chattingDetail";
   static const String mainPage = "/";
 }
 
@@ -34,18 +34,19 @@ class RouteGenerator {
         );
       case Routes.quizletCloneDetail:
         return MaterialPageRoute(
-          settings: routeSettings,
-          builder: (context) => Constant.isDesktop
-              ? const QuizletCloneDetailPage()
-              : const QuizletCloneDetailPageMobile(),
-        );
+            settings: routeSettings,
+            builder: (context) => const QuizletCloneDetailPage());
       case Routes.konanTuneDetail:
         return MaterialPageRoute(
-          settings: routeSettings,
-          builder: (context) => Constant.isDesktop
-              ? const KonanTuneDetailPage()
-              : const KonanTuneDetailPageMobile(),
-        );
+            settings: routeSettings,
+            // builder: (context) => Constant.isDesktop
+            //     ? const KonanTuneDetailPage()
+            //     : const KonanTuneDetailPageMobile(),
+            builder: (context) => const KonanTuneDetailPage());
+      case Routes.chattingDetail:
+        return MaterialPageRoute(
+            settings: routeSettings,
+            builder: (context) => const ChattingDetailPage());
       default:
         return unDefinedRoute();
     }

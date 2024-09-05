@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:image_network/image_network.dart';
 import 'package:portfolio/common/theme.dart';
 import 'package:portfolio/widget/ytb_player.dart';
 import 'dart:html' as html;
@@ -19,7 +18,7 @@ class _QuizletCloneDetailPageState extends State<QuizletCloneDetailPage> {
   bool hoverGithub = false;
 
   List<String> projectImages = [
-    'gcqM9amqEtU',
+    '8Gt3Npgoz6A',
     'assets/images/quizlet_clone/0.png',
     'assets/images/quizlet_clone/1.png',
     'assets/images/quizlet_clone/2.png',
@@ -58,7 +57,7 @@ class _QuizletCloneDetailPageState extends State<QuizletCloneDetailPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0),
-          child: Container(
+          child: SizedBox(
             height: 850,
             child: Column(
               children: [
@@ -157,7 +156,7 @@ class _QuizletCloneDetailPageState extends State<QuizletCloneDetailPage> {
                           children: [
                             GradientText(
                               "Foreign language vocabulary learning application",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 36, fontWeight: FontWeight.w800),
                               colors: const [
                                 AppTheme.indicatorColor,

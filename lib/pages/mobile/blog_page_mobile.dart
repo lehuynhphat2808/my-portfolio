@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:portfolio/model/blog_model.dart';
@@ -27,7 +26,7 @@ class _BlogPageState extends State<BlogPage> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Column(
         children: [
           Column(
@@ -35,7 +34,7 @@ class _BlogPageState extends State<BlogPage> {
             children: [
               GradientText(
                 "Let's share experiences, stories, and knowledge together.",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 colors: const [Colors.white, AppTheme.indicatorColor],
               ),
               const SizedBox(
@@ -159,43 +158,43 @@ class _BlogPageState extends State<BlogPage> {
                                   width: 100,
                                   child: Row(
                                     children: [
-                                      Expanded(
+                                      const Expanded(
                                         child: Divider(
                                           thickness: 2,
                                           color: AppTheme.indicatorColor,
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 4,
                                       ),
                                       Text(
-                                        '${DateFormat.yMMMMd().format(blogModel.date)}',
-                                        style: TextStyle(
+                                        DateFormat.yMMMMd().format(blogModel.date),
+                                        style: const TextStyle(
                                             color: Colors.white, fontSize: 10),
                                       )
                                     ],
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 4,
                                 ),
                                 Text(
                                   blogModel.name,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: AppTheme.indicatorColor,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 4,
                                 ),
                                 Text(
                                   blogModel.detail,
                                   maxLines: 3,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white, fontSize: 16),
                                 ),
                               ],

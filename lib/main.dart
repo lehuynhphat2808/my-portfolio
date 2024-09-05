@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Constant.isDesktop = defaultTargetPlatform != TargetPlatform.android &&
         defaultTargetPlatform != TargetPlatform.iOS;
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Le Huynh Phat',
       initialRoute: Routes.mainPage,
       onGenerateRoute: RouteGenerator.getRoute,

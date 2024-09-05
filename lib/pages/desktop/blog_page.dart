@@ -49,7 +49,7 @@ class _BlogPageState extends State<BlogPage> {
                 ),
                 GradientText(
                   "Let's share experiences, stories, and knowledge together.",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                   colors: const [Colors.white, AppTheme.indicatorColor],
                 ),
                 const SizedBox(
@@ -167,43 +167,43 @@ class _BlogPageState extends State<BlogPage> {
                                   width: 100,
                                   child: Row(
                                     children: [
-                                      Expanded(
+                                      const Expanded(
                                         child: Divider(
                                           thickness: 2,
                                           color: AppTheme.indicatorColor,
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 4,
                                       ),
                                       Text(
-                                        '${DateFormat.yMMMMd().format(blogModel.date)}',
-                                        style: TextStyle(
+                                        DateFormat.yMMMMd().format(blogModel.date),
+                                        style: const TextStyle(
                                             color: Colors.white, fontSize: 10),
                                       )
                                     ],
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 4,
                                 ),
                                 Text(
                                   blogModel.name,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: AppTheme.indicatorColor,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 4,
                                 ),
                                 Text(
                                   blogModel.detail,
                                   maxLines: 3,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white, fontSize: 16),
                                 ),
                               ],

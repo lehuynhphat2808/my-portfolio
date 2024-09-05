@@ -45,5 +45,25 @@ _flutter.loader.load({
   config: config,
 });
 </script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDjDV76cuSj7azdbYxb4i46CqvMPxHIyOw",
+      authDomain: "lehuynhphat-d8b69.firebaseapp.com",
+      projectId: "lehuynhphat-d8b69",
+      storageBucket: "lehuynhphat-d8b69.appspot.com",
+      messagingSenderId: "903018714989",
+      appId: "1:903018714989:web:71049dddf76264fb0dec64"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+
 </body>
 </html>

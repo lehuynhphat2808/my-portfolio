@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/model/project_model.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -42,30 +41,32 @@ class _PortfolioPageState extends State<PortfolioPage> {
             "This musical instrument app allows buyers and sellers to conveniently transact approved items. Administrators screen listings to maintain accurate product details for various guitars, pianos, drums and other available instruments. Buyers can browse detailed listings with photos and prices to compare and purchase items through secure online transactions. Sellers must register to submit their posts for review. Reviews from past customers provide valuable feedback on each item page. The app intends to connect a community of music lovers through a curated marketplace while the administrators ensure quality of content and purchase experiences.",
         tech: 'Kotlin, Spring Boot',
         github: 'https://github.com/lehuynhphat2808/konan-tune'),
-    // ProjectModel(
-    //     image: 'assets/images/konan_tune_project.png',
-    //     name: "Konan's Tune",
-    //     detail:
-    //         "This musical instrument app allows buyers and sellers to conveniently transact approved items. Administrators screen listings to maintain accurate product details for various guitars, pianos, drums and other available instruments. Buyers can browse detailed listings with photos and prices to compare and purchase items through secure online transactions. Sellers must register to submit their posts for review. Reviews from past customers provide valuable feedback on each item page. The app intends to connect a community of music lovers through a curated marketplace while the administrators ensure quality of content and purchase experiences.",
-    //     tech: 'Kotlin, Spring Boot'),
+    ProjectModel(
+        image: 'assets/images/chatting_project.png',
+        name: "Chatting App",
+        detailUrl: Routes.chattingDetail,
+        detail:
+            "The Chatting App is a modern messaging platform that enables real-time communication between users. Its user-friendly interface and customizable themes make it easy to connect with friends and family, ensuring that important messages are never missed..",
+        tech: 'Flutter, Firebase',
+        github: 'https://github.com/lehuynhphat2808/my_chat_app'),
   ];
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    int _crossAxisCount = 3;
-    double _crossAxisSpacing = 16;
+    int crossAxisCount = 3;
+    double crossAxisSpacing = 16;
     switch (width) {
       case < 600:
-        _crossAxisSpacing = 0;
-        _crossAxisCount = 1;
+        crossAxisSpacing = 0;
+        crossAxisCount = 1;
 
       case < 1075:
-        _crossAxisSpacing = 4;
-        _crossAxisCount = 1;
+        crossAxisSpacing = 4;
+        crossAxisCount = 1;
 
       case < 1400:
-        _crossAxisSpacing = 8;
-        _crossAxisCount = 2;
+        crossAxisSpacing = 8;
+        crossAxisCount = 2;
     }
 
     return Padding(
@@ -98,11 +99,11 @@ class _PortfolioPageState extends State<PortfolioPage> {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: _crossAxisCount,
-                    mainAxisSpacing: _crossAxisSpacing,
+                    crossAxisCount: crossAxisCount,
+                    mainAxisSpacing: crossAxisSpacing,
                     childAspectRatio:
-                        ((width - ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-                                _crossAxisCount) /
+                        ((width - ((crossAxisCount - 1) * crossAxisSpacing)) /
+                                crossAxisCount) /
                             525),
                 children:
                     projectModelList.map((e) => _buildProjectItem(e)).toList(),
@@ -210,7 +211,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 IconButton(
-                                  icon: FaIcon(
+                                  icon: const FaIcon(
                                     FontAwesomeIcons.github,
                                     color: Colors.white,
                                     size: 16,
@@ -229,7 +230,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                             projectModel.name)
                                         : null;
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     CupertinoIcons.share,
                                     color: Colors.white,
                                     size: 16,

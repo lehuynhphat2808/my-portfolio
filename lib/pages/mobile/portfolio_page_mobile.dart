@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/model/project_model.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -52,8 +51,8 @@ class _PortfolioPageState extends State<PortfolioPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    int _crossAxisCount = 1;
-    double _crossAxisSpacing = 0;
+    int crossAxisCount = 1;
+    double crossAxisSpacing = 0;
 
     return SingleChildScrollView(
       child: Column(
@@ -81,11 +80,11 @@ class _PortfolioPageState extends State<PortfolioPage> {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: _crossAxisCount,
-                  mainAxisSpacing: _crossAxisSpacing,
+                  crossAxisCount: crossAxisCount,
+                  mainAxisSpacing: crossAxisSpacing,
                   childAspectRatio:
-                      ((width - ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-                              _crossAxisCount) /
+                      ((width - ((crossAxisCount - 1) * crossAxisSpacing)) /
+                              crossAxisCount) /
                           375),
               children:
                   projectModelList.map((e) => _buildProjectItem(e)).toList(),
@@ -192,7 +191,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 IconButton(
-                                  icon: FaIcon(
+                                  icon: const FaIcon(
                                     FontAwesomeIcons.github,
                                     color: Colors.white,
                                     size: 16,
@@ -211,7 +210,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                             projectModel.name)
                                         : null;
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     CupertinoIcons.share,
                                     color: Colors.white,
                                     size: 16,

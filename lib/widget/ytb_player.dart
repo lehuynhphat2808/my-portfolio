@@ -1,5 +1,4 @@
 import 'dart:html' as html;
-import 'dart:js' as js;
 import 'dart:ui_web' as ui;
 
 import 'package:flutter/material.dart';
@@ -13,7 +12,7 @@ class YtbPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _controller = YoutubePlayerController.fromVideoId(
+    final controller = YoutubePlayerController.fromVideoId(
       videoId: src,
       autoPlay: false,
       params: const YoutubePlayerParams(showFullscreenButton: true),
@@ -30,7 +29,7 @@ class YtbPlayer extends StatelessWidget {
 
     return Container(
       child: YoutubePlayer(
-        controller: _controller,
+        controller: controller,
         aspectRatio: 16 / 9,
       ),
     );

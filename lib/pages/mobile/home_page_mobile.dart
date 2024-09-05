@@ -1,9 +1,6 @@
-import 'dart:math';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:portfolio/animation/my_typewriter.dart';
 import 'package:portfolio/common/theme.dart';
 
@@ -82,11 +79,11 @@ class HomePage extends StatelessWidget {
                   repeatForever: true,
                   animatedTexts: [
                     MyTypewriterAnimatedText('Mobile Developer',
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
                             color: AppTheme.indicatorColor),
-                        speed: Duration(milliseconds: 250)),
+                        speed: const Duration(milliseconds: 250)),
                   ],
                 ),
               ),

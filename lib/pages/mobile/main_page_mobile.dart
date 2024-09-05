@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -84,8 +83,8 @@ class _MainPageMobileState extends State<MainPageMobile> {
         body: Column(
           children: [
             _buildTabBar(),
-            Expanded(
-              child: const TabBarView(
+            const Expanded(
+              child: TabBarView(
                 children: <Widget>[
                   HomePage(),
                   AboutPage(),

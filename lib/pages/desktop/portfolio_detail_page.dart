@@ -1,8 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:portfolio/common/theme.dart';
 import 'dart:html' as html;
 
@@ -139,7 +136,7 @@ class _PortfolioDetailPageState extends State<PortfolioDetailPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "– Describe Project: My personal website, I created this website to display my profile, skiils and projects. As woll as my place to try new technology.",
+                          "– Describe Project: My personal website, I created this website to display my profile, skills and projects. As well as my place to try new technology.",
                           style: textStyle,
                         ),
                         Constant.isDesktop

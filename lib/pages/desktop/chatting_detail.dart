@@ -6,33 +6,27 @@ import 'dart:html' as html;
 
 import '../../widget/ytb_player.dart';
 
-class KonanTuneDetailPage extends StatefulWidget {
-  const KonanTuneDetailPage({super.key});
+class ChattingDetailPage extends StatefulWidget {
+  const ChattingDetailPage({super.key});
 
   @override
-  State<KonanTuneDetailPage> createState() => _KonanTuneDetailPageState();
+  State<ChattingDetailPage> createState() => _ChattingDetailPageState();
 }
 
-class _KonanTuneDetailPageState extends State<KonanTuneDetailPage> {
+class _ChattingDetailPageState extends State<ChattingDetailPage> {
   TextStyle textStyle = const TextStyle(color: Colors.white, fontSize: 16);
   bool hoverGithub = false;
 
   List<String> projectImages = [
-    'JfBVo4EkD1U',
-    'DaDm_9islmM',
-    'assets/images/konan_tune/1.png',
-    'assets/images/konan_tune/2.png',
-    'assets/images/konan_tune/3.png',
-    'assets/images/konan_tune/4.png',
-    'assets/images/konan_tune/5.png',
-    'assets/images/konan_tune/6.png',
-    'assets/images/konan_tune/7.png',
-    'assets/images/konan_tune/8.png',
-    'assets/images/konan_tune/9.png',
-    'assets/images/konan_tune/10.png',
-    'assets/images/konan_tune/11.png',
-    'assets/images/konan_tune/12.png',
-    'assets/images/konan_tune/13.png',
+    'assets/images/chatting/1.png',
+    'assets/images/chatting/2.png',
+    'assets/images/chatting/3.png',
+    'assets/images/chatting/4.png',
+    'assets/images/chatting/5.png',
+    'assets/images/chatting/6.png',
+    'assets/images/chatting/7.png',
+    'assets/images/chatting/8.png',
+    'assets/images/chatting/9.png',
   ];
   CarouselSliderController buttonCarouselController =
       CarouselSliderController();
@@ -135,7 +129,7 @@ class _KonanTuneDetailPageState extends State<KonanTuneDetailPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GradientText(
-                        "App for buying and selling musical instruments",
+                        "Chatting App",
                         style: const TextStyle(
                             fontSize: 36, fontWeight: FontWeight.w800),
                         colors: const [
@@ -144,7 +138,7 @@ class _KonanTuneDetailPageState extends State<KonanTuneDetailPage> {
                         ],
                       ),
                       const Text(
-                        'Kotlin, Spring boot',
+                        'Flutter, Firebase',
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -166,11 +160,11 @@ class _KonanTuneDetailPageState extends State<KonanTuneDetailPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "– Describe Project: The application allows buying and selling musical instruments approved by the administrator.",
+                              "The Chatting App is a modern messaging platform that enables real-time communication between users. Its user-friendly interface and customizable themes make it easy to connect with friends and family, ensuring that important messages are never missed..",
                               style: textStyle,
                             ),
                             Text(
-                              "– Technology: MVVM structure, Spring Boot, Kotlin, MySQL.",
+                              "– Technology: Flutter, Firebase",
                               style: textStyle,
                             ),
                             MouseRegion(

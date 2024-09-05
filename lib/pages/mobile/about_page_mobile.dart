@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/common/theme.dart';
@@ -306,8 +304,8 @@ class _SkillTabbarState extends State<SkillTabbar>
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    int _crossAxisCount = 2;
-    double _crossAxisSpacing = 8;
+    int crossAxisCount = 2;
+    double crossAxisSpacing = 8;
 
     return SingleChildScrollView(
       child: Column(
@@ -335,7 +333,7 @@ class _SkillTabbarState extends State<SkillTabbar>
           const SizedBox(
             height: 8,
           ),
-          Container(
+          SizedBox(
             height: 400,
             child: TabBarView(
               controller: _tabController,
@@ -415,7 +413,7 @@ class _SkillTabbarState extends State<SkillTabbar>
                     ),
                   ),
                   AnimatedPositioned(
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     top: skillModel.selected ? 20 : 50,
                     child: SizedBox(
                       width: 150,
