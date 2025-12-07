@@ -77,7 +77,7 @@ class AboutPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              "Good day everyone, my name is Le Huynh Phat. I'm a fourth year software engineering student pursuing a career as a mobile application developer. What I enjoy most about my work is the artistic aspect of creation - building applications that are not just functional tools, but deliver memorable experiences.My goal is to craft intuitive, user-friendly apps that attract and retain an engaged audience. Beyond, I aim to imprint each product with a distinct identity and message. Creativity is at the heart of my process, whether designing smooth interfaces or clever interactions that capture user attention.",
+                              "Good day everyone, my name is Le Huynh Phat. I graduated in Software Engineering from Ton Duc Thang University and am pursuing a career as a fullstack mobile developer, working with both native and cross-platform technologies. What I enjoy most about my work is the creative aspect of building applications that are not only functional but also deliver memorable experiences. My goal is to craft intuitive, user-friendly apps that attract and retain users through thoughtful design and smooth interaction.",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
@@ -91,7 +91,7 @@ class AboutPage extends StatelessWidget {
                               height: 15,
                             ),
                             const Text(
-                              "Whether building for businesses or passion projects, I approach each commission with the same care and dedication. Clients can rely on me to balance aesthetics with usability, ensuring their brand or service is optimally represented in the digital space. If developing engaging mobile experiences piques your interest, please feel free to contact me using the details below. I'm always eager to bring new visions to life through code.",
+                              "Whether working on business solutions or personal projects, I approach each product with care, dedication, and a strong focus on quality. I strive to balance aesthetics with usability, ensuring every application represents the brand or service effectively within the digital space. If creating engaging mobile experiences resonates with you, feel free to contact me using the details below. I’m always eager to bring new ideas to life through code.",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16,
@@ -158,26 +158,28 @@ class _SkillTabbarState extends State<SkillTabbar>
     SkillModel(
       image: 'assets/images/flutter_icon.png',
       name: 'Flutter',
-      level: 'Competent',
+      level: 'Intermediate',
     ),
+    SkillModel(
+        image: 'assets/images/react_native.png',
+        name: 'React Native',
+        level: 'Beginner'),
     SkillModel(
         image: 'assets/images/kotlin_icon.png',
         name: 'Kotlin',
-        level: 'Intermediate'),
+        level: 'Beginner'),
     SkillModel(
         image: 'assets/images/spring_boot_icon.png',
         name: 'Spring Boot',
-        level: 'Intermediate'),
+        level: 'Beginner'),
     SkillModel(
         image: 'assets/images/firebase_icon.png',
         name: 'Firebase',
-        level: 'Intermediate'),
+        level: 'Beginner'),
     SkillModel(
         image: 'assets/images/dart_icon.png', name: 'Dart', level: 'Competent'),
     SkillModel(
-        image: 'assets/images/java_icon.png',
-        name: 'Java',
-        level: 'Intermediate'),
+        image: 'assets/images/java_icon.png', name: 'Java', level: 'Beginner'),
     SkillModel(
         image: 'assets/images/smart_contract_icon.png',
         name: 'Interact Smart Contract',
@@ -192,10 +194,6 @@ class _SkillTabbarState extends State<SkillTabbar>
         image: 'assets/images/github_icon.png',
         name: 'Github',
         level: 'Intermediate'),
-    SkillModel(
-        image: 'assets/images/mysql_icon.png',
-        name: 'MySQL',
-        level: 'Beginner'),
   ];
 
   @override

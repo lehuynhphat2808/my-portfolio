@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/desktop/chatting_detail.dart';
+import 'package:portfolio/pages/desktop/efusion_detail_page.dart';
 import 'package:portfolio/pages/desktop/konan_tune_detail.dart';
 import 'package:portfolio/pages/desktop/main_page.dart';
-import 'package:portfolio/pages/mobile/konan_tune_detail_mobile.dart';
+import 'package:portfolio/pages/desktop/xfw_detail_page.dart';
 import 'package:portfolio/pages/mobile/main_page_mobile.dart';
 import 'package:portfolio/pages/desktop/portfolio_detail_page.dart';
 import 'package:portfolio/pages/desktop/quizlet_clone_detail.dart';
-import 'package:portfolio/pages/mobile/quizlet_clone_detail_mobile.dart';
 
 import '../data/constants.dart';
 
 class Routes {
+  static const String xfwDetail = "/xfw";
+  static const String efusionDetail = "/efusion";
   static const String portfolioDetail = "/portfolioDetail";
   static const String quizletCloneDetail = "/quizletCloneDetail";
   static const String konanTuneDetail = "/konanTuneDetail";
@@ -26,7 +28,16 @@ class RouteGenerator {
             settings: routeSettings,
             builder: (context) =>
                 Constant.isDesktop ? const MainPage() : const MainPageMobile());
-
+      case Routes.xfwDetail:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (context) => const XFWDetailPage(),
+        );
+      case Routes.efusionDetail:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (context) => const EfusionDetailPage(),
+        );
       case Routes.portfolioDetail:
         return MaterialPageRoute(
           settings: routeSettings,

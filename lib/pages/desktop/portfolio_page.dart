@@ -18,13 +18,29 @@ class PortfolioPage extends StatefulWidget {
 class _PortfolioPageState extends State<PortfolioPage> {
   List<ProjectModel> projectModelList = [
     ProjectModel(
-        image: 'assets/images/portfolio_project.png',
-        name: 'Personal Website',
+        image: 'assets/images/xfw.png',
+        name: 'XFW',
         detail:
-            "My personal website, I created this website to display my profile, skiils and projects. As woll as my place to try new technology.",
-        tech: 'Dart, Flutter',
-        github: 'https://github.com/lehuynhphat2808/my-portfolio',
-        detailUrl: Routes.portfolioDetail),
+            " A work management and team communication app with chat threads (like Slack), task creation, payments, and collaboration features similar to Zalo/Microsoft Teams",
+        tech: 'Dart, Flutter, Clean Architecture, CQRS',
+        github: '',
+        detailUrl: Routes.xfwDetail),
+    ProjectModel(
+        image: 'assets/images/efusion.png',
+        name: 'Efusion',
+        detail:
+            "Description: A mobile app for buying pet-specific products like food, toys, accessories, and health items. Features include easy browsing, order tracking, product reviews, and personalized recommendations.",
+        tech: ' Flutter, Dart, Clean Architecture',
+        github: '',
+        detailUrl: Routes.efusionDetail),
+    // ProjectModel(
+    //     image: 'assets/images/portfolio_project.png',
+    //     name: 'Personal Website',
+    //     detail:
+    //         "My personal website, I created this website to display my profile, skiils and projects. As woll as my place to try new technology.",
+    //     tech: 'Dart, Flutter',
+    //     github: 'https://github.com/lehuynhphat2808/my-portfolio',
+    //     detailUrl: Routes.portfolioDetail),
     ProjectModel(
         image: 'assets/images/quizlet_project.png',
         name: 'Quizlet Clone',
@@ -223,19 +239,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         : null;
                                   },
                                 ),
-                                IconButton(
-                                  onPressed: () {
-                                    projectModel.github.isNotEmpty
-                                        ? html.window.open(projectModel.github,
-                                            projectModel.name)
-                                        : null;
-                                  },
-                                  icon: const Icon(
-                                    CupertinoIcons.share,
-                                    color: Colors.white,
-                                    size: 16,
-                                  ),
-                                )
+                                // IconButton(
+                                //   onPressed: () {
+                                //     projectModel.github.isNotEmpty
+                                //         ? html.window.open(projectModel.github,
+                                //             projectModel.name)
+                                //         : null;
+                                //   },
+                                //   icon: const Icon(
+                                //     CupertinoIcons.share,
+                                //     color: Colors.white,
+                                //     size: 16,
+                                //   ),
+                                // )
                               ],
                             ),
                           )
