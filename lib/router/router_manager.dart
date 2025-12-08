@@ -26,8 +26,12 @@ class RouteGenerator {
       case Routes.mainPage:
         return MaterialPageRoute(
             settings: routeSettings,
-            builder: (context) =>
-                Constant.isDesktop ? const MainPage() : const MainPageMobile());
+            builder: (context) => Constant.isDesktop
+                ? MainPage(
+                    initialIndex:
+                        (routeSettings.arguments as int?)?.clamp(0, 3) ?? 0,
+                  )
+                : const MainPageMobile());
       case Routes.xfwDetail:
         return MaterialPageRoute(
           settings: routeSettings,

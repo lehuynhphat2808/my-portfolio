@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/theme.dart';
+import 'package:portfolio/widget/home_button.dart';
 import 'dart:html' as html;
 
 import '../../data/constants.dart';
@@ -101,6 +102,7 @@ class _PortfolioDetailPageState extends State<PortfolioDetailPage> {
                               : Colors.grey.withOpacity(0.3),
                         )),
                   ),
+                  const HomeButtonOverlay(),
                 ],
               ),
             ),

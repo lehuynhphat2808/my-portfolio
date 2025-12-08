@@ -12,7 +12,9 @@ import 'home_page.dart';
 import 'portfolio_page.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  const MainPage({super.key, this.initialIndex = 0});
+
+  final int initialIndex;
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -25,7 +27,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return DefaultTabController(
-      initialIndex: 0,
+      initialIndex: widget.initialIndex.clamp(0, 3),
       length: 4,
       child: Scaffold(
         backgroundColor: AppTheme.appBackground,
@@ -159,7 +161,7 @@ class _MainPageState extends State<MainPage> {
             text: 'About',
           ),
           Tab(
-            text: 'Portfolio',
+            text: 'Project',
           ),
           Tab(
             text: 'Blog',

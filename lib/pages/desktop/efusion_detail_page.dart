@@ -2,10 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/theme.dart';
+import 'package:portfolio/widget/home_button.dart';
 import 'dart:html' as html;
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-
-import '../../data/constants.dart';
 
 class EfusionDetailPage extends StatefulWidget {
   const EfusionDetailPage({super.key});
@@ -117,6 +116,7 @@ class EfusionDetailPageState extends State<EfusionDetailPage> {
                               AssetImage('assets/images/back_icon.png'),
                               color: AppTheme.indicatorColor)),
                     ),
+                    const HomeButtonOverlay(),
                   ],
                 ),
               ),
@@ -165,34 +165,6 @@ class EfusionDetailPageState extends State<EfusionDetailPage> {
                             Text(
                               "– Tech stack: Dart, Flutter, Clean Architecture.",
                               style: textStyle,
-                            ),
-                            MouseRegion(
-                              onHover: (event) {
-                                setState(() {
-                                  hoverGithub = true;
-                                });
-                              },
-                              onExit: (event) {
-                                setState(() {
-                                  hoverGithub = false;
-                                });
-                              },
-                              child: GestureDetector(
-                                onTap: () {
-                                  html.window.open(
-                                      'https://github.com/lehuynhphat2808/konan-tune',
-                                      "Le Huynh Phat konan's tune");
-                                },
-                                child: Container(
-                                  color: hoverGithub
-                                      ? AppTheme.indicatorColor.withOpacity(0.3)
-                                      : null,
-                                  child: Text(
-                                    '– Github: https://github.com/lehuynhphat2808/konan-tune',
-                                    style: textStyle,
-                                  ),
-                                ),
-                              ),
                             ),
                           ],
                         ),

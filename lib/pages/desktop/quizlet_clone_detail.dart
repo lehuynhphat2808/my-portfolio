@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/theme.dart';
+import 'package:portfolio/widget/home_button.dart';
 import 'package:portfolio/widget/ytb_player.dart';
 import 'dart:html' as html;
 
@@ -140,6 +141,7 @@ class _QuizletCloneDetailPageState extends State<QuizletCloneDetailPage> {
                                 AssetImage('assets/images/back_icon.png'),
                                 color: AppTheme.indicatorColor)),
                       ),
+                      const HomeButtonOverlay(),
                     ],
                   ),
                 ),
