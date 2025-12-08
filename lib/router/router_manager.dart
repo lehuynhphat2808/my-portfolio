@@ -11,8 +11,8 @@ import 'package:portfolio/pages/desktop/quizlet_clone_detail.dart';
 import '../data/constants.dart';
 
 class Routes {
-  static const String xfwDetail = "/xfw";
-  static const String efusionDetail = "/efusion";
+  static const String xfwDetail = "/xfwDetail";
+  static const String efusionDetail = "/efusionDetail";
   static const String portfolioDetail = "/portfolioDetail";
   static const String quizletCloneDetail = "/quizletCloneDetail";
   static const String konanTuneDetail = "/konanTuneDetail";

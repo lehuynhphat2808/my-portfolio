@@ -17,20 +17,20 @@ class XFWDetailPageState extends State<XFWDetailPage> {
       CarouselSliderController();
   int currentPage = 0;
   List<String> projectImages = [
-    'images/xfw/1.png',
-    'images/xfw/2.png',
-    'images/xfw/3.png',
-    'images/xfw/4.png',
-    'images/xfw/5.png',
-    'images/xfw/6.png',
-    'images/xfw/7.png',
-    'images/xfw/8.png',
-    'images/xfw/9.png',
-    'images/xfw/10.png',
-    'images/xfw/11.png',
-    'images/xfw/12.png',
-    'images/xfw/13.png',
-    'images/xfw/14.png',
+    'assets/images/xfw/1.png',
+    'assets/images/xfw/2.png',
+    'assets/images/xfw/3.png',
+    'assets/images/xfw/4.png',
+    'assets/images/xfw/5.png',
+    'assets/images/xfw/6.png',
+    'assets/images/xfw/7.png',
+    'assets/images/xfw/8.png',
+    'assets/images/xfw/9.png',
+    'assets/images/xfw/10.png',
+    'assets/images/xfw/11.png',
+    'assets/images/xfw/12.png',
+    'assets/images/xfw/13.png',
+    'assets/images/xfw/14.png',
   ];
   TextStyle textStyle = const TextStyle(color: Colors.white, fontSize: 16);
   bool hoverGithub = false;
@@ -116,7 +116,7 @@ class XFWDetailPageState extends State<XFWDetailPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GradientText(
-                        "Efusion Mobile App",
+                        "XFW",
                         style: const TextStyle(
                             fontSize: 36, fontWeight: FontWeight.w800),
                         colors: const [
